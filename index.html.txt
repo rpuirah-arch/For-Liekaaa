@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ff69b4, #ffffff); /* Pink to white gradient */
+            color: #ff1493; /* Deep pink text */
+            text-align: center;
+            overflow: hidden; /* Hide overflow for sprinkle animation */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .heart {
+            font-size: 5em;
+            color: #ff69b4;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .sprinkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            animation: fall 5s linear infinite;
+        }
+        
+        @keyframes fall {
+            0% { top: -10px; opacity: 1; }
+            100% { top: 100vh; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Will You Be My Valentine?</h1>
+    <div class="heart">❤️</div>
+    
+    <script>
+        // Generate sprinkle confetti
+        function createSprinkle() {
+            const sprinkle = document.createElement('div');
+            sprinkle.className = 'sprinkle';
+            sprinkle.style.left = Math.random() * 100 + 'vw';
+            sprinkle.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(sprinkle);
+            
+            setTimeout(() => {
+                sprinkle.remove();
+            }, 5000);
+        }
+        
+        // Create sprinkles every 200ms
+        setInterval(createSprinkle, 200);
+    </script>
+</body>
+</html>
