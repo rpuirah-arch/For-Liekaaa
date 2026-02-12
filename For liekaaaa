@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            margin: 0; [cite: 1]
+            padding: 0; [cite: 2]
+            font-family: 'Arial', sans-serif; [cite: 2]
+            background: linear-gradient(to bottom, #ff69b4, #ffffff); [cite: 2]
+            color: #ff1493; [cite: 3]
+            text-align: center; [cite: 4]
+            overflow: hidden; [cite: 4]
+            height: 100vh; [cite: 5]
+            display: flex; [cite: 6]
+            flex-direction: column; [cite: 6]
+            justify-content: center; [cite: 6]
+            align-items: center; [cite: 6]
+        }
+        
+        h1 {
+            font-size: 3em; [cite: 6]
+            margin-bottom: 20px; [cite: 7]
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); [cite: 7]
+        }
+        
+        .heart {
+            font-size: 5em; [cite: 7]
+            color: #ff69b4; [cite: 8]
+            animation: pulse 1.5s infinite; [cite: 8]
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); [cite: 8, 9] }
+            50% { transform: scale(1.1); [cite: 9, 10] }
+            100% { transform: scale(1); [cite: 10, 11] }
+        }
+        
+        .sprinkle {
+            position: absolute; [cite: 11]
+            width: 10px; [cite: 12]
+            height: 10px; [cite: 12]
+            background-color: #ff69b4; [cite: 12]
+            border-radius: 50%; [cite: 12]
+            animation: fall 5s linear infinite; [cite: 12]
+        }
+        
+        @keyframes fall {
+            0% { top: -10px; opacity: 1; [cite: 13, 14] }
+            100% { top: 100vh; opacity: 0; [cite: 14, 15] }
+        }
+    </style>
+</head>
+<body>
+    <h1>Will You Be My Valentine?</h1>
+    <div class="heart">❤️</div>
+    
+    <script>
+        function createSprinkle() {
+            const sprinkle = document.createElement('div'); [cite: 15, 16]
+            sprinkle.className = 'sprinkle'; [cite: 16]
+            sprinkle.style.left = Math.random() * 100 + 'vw'; [cite: 16]
+            sprinkle.style.animationDelay = Math.random() * 5 + 's'; [cite: 16]
+            document.body.appendChild(sprinkle); [cite: 16]
+            setTimeout(() => {
+                sprinkle.remove(); [cite: 17]
+            }, 5000); [cite: 17]
+        }
+        
+        setInterval(createSprinkle, 200); [cite: 18, 19]
+    </script>
+</body>
+</html>
